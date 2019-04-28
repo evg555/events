@@ -13,6 +13,11 @@ $(document).ready(function(){
 
         $('.calendar').html(html);
     });
+
+    $('.calendar').on('click','td',function(){
+        $('.current').removeClass('current');
+        $(this).addClass('current');
+    })
 });
 
 function initCalendar(){
@@ -56,14 +61,14 @@ function getCalendarDates(date){
 
     //Формируем массив всех дат
     for (let i = correctPrevDate.getDate();i <= prevEndDay.getDate();i++){
-        allDates.push(i);
+        allDates.push(prevEndDay.getFullYear() + '-' + (prevEndDay.getMonth() + 1) + '-' + i);
     }
     for (let i = startDay.getDate();i <= endDay.getDate();i++){
-        allDates.push(i);
+        allDates.push(startDay.getFullYear() + '-' + (startDay.getMonth() + 1)  + '-' + i);
     }
 
     for (let i = nextStartDay.getDate();i <= correctNextDate.getDate();i++){
-        allDates.push(i);
+        allDates.push(nextStartDay.getFullYear() + '-' + (nextStartDay.getMonth() + 1) + '-' + i);
     }
 
     return allDates;
@@ -73,7 +78,7 @@ function renderCalendar(date, allDates){
     //Формируем таблицу вывода календаря
     const tr = allDates.length / 7;
     let html = '<table>';
-    html += '<tr style="font-weight: bold;">' +
+    html += '<tr>' +
         '<td colspan="7">' +
         monthes[date.getMonth()] + ' ' + date.getFullYear() +
         '</td>' +
@@ -109,7 +114,14 @@ function renderCalendar(date, allDates){
             if (j > 0 && j%7 === 0) break;
 
             const numberIndex = j + 7 * (i - 1);
-            html += '<td>' + allDates[numberIndex] + '</td>';
+            const elDay = allDates[numberIndex].split('-')[2];
+            let current = false;
+
+            if (new Date(allDates[numberIndex]).toDateString() === new Date().toDateString()){
+                current = true;
+            }
+
+            html += '<td class="' + (current ? "current" : "") +'">' + elDay + '</td>';
         }
     }
 

@@ -14,28 +14,33 @@
 <body>
 
 <div class="wrapper">
-    <div class="panel">
-        <select name="month" id="month">
-            <option value="0">Январь</option>
-            <option value="1">Февраль</option>
-            <option value="2">Март</option>
-            <option value="3">Апрель</option>
-            <option value="4">Май</option>
-            <option value="5">Июнь</option>
-            <option value="6">Июль</option>
-            <option value="7">Август</option>
-            <option value="8">Сентябрь</option>
-            <option value="9">Октябрь</option>
-            <option value="10">Ноябрь</option>
-            <option value="11">Декабрь</option>
-        </select>
-        <select name="year" id="year">
-        </select>
+    <div class="inner">
+        <div class="panel">
+            <select name="month" id="month">
+                <option value="0">Январь</option>
+                <option value="1">Февраль</option>
+                <option value="2">Март</option>
+                <option value="3">Апрель</option>
+                <option value="4">Май</option>
+                <option value="5">Июнь</option>
+                <option value="6">Июль</option>
+                <option value="7">Август</option>
+                <option value="8">Сентябрь</option>
+                <option value="9">Октябрь</option>
+                <option value="10">Ноябрь</option>
+                <option value="11">Декабрь</option>
+            </select>
+            <select name="year" id="year">
+            </select>
+        </div>
+        <div class="calendar"></div>
     </div>
-
-    <div class="calendar"></div>
+    <div class="inner">
+        <div class="events">
+            <p>Мероприятия на 28.04.2019 г.</p>
+        </div>
+    </div>
 </div>
-
 
 </body>
 </html>
