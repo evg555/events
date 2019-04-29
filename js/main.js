@@ -17,6 +17,9 @@ $(document).ready(function(){
     $('.calendar').on('click','td',function(){
         $('.current').removeClass('current');
         $(this).addClass('current');
+
+        const clickDate = $(this).data('date');
+        getListEvents(clickDate);
     })
 });
 
@@ -32,6 +35,9 @@ function initCalendar(){
     $('select[name="year"]').html(yearsList);
     $('select[name="month"]').find("option:contains('"+currentMonth+"')").attr("selected", "selected");
     $('select[name="year"]').find("option:contains('"+currentYear+"')").attr("selected", "selected");
+
+    const currentDate = $('td.current').data('date');
+    getListEvents(currentDate);
 }
 
 function getCalendarDates(date){
@@ -113,15 +119,19 @@ function renderCalendar(date, allDates){
         for (let j = 0;j < allDates.length; j++){
             if (j > 0 && j%7 === 0) break;
 
-            const numberIndex = j + 7 * (i - 1);
-            const elDay = allDates[numberIndex].split('-')[2];
             let current = false;
+            const numberIndex = j + 7 * (i - 1);
+            const elDay = allDates[numberIndex].split('-');
+
+            //Форматируем дату для вывода
+            const formatDateObj = new Date(allDates[numberIndex]);
+            const formatDate = (formatDateObj.getDate() < 10 ? '0' + formatDateObj.getDate() : formatDateObj.getDate()) + '.' + (formatDateObj.getMonth() < 9 ? '0' + (formatDateObj.getMonth() + 1) : (formatDateObj.getMonth() + 1)) + '.' + formatDateObj.getFullYear();
 
             if (new Date(allDates[numberIndex]).toDateString() === new Date().toDateString()){
                 current = true;
             }
 
-            html += '<td class="' + (current ? "current" : "") +'">' + elDay + '</td>';
+            html += '<td data-date="' + formatDate +'" class="' + (current ? "current" : "") +'">' + elDay[2] + '</td>';
         }
     }
 
@@ -138,5 +148,9 @@ function getYearsList(year){
     }
 
     return yearList;
+}
+
+function getListEvents(date){
+    $('span.event-date').text(date);
 }
 

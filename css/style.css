@@ -59,3 +59,52 @@ table td.current{
     margin-top: 55px;
 }
 
+.events h3 {
+    padding: 20px;
+    font-size: 20px;
+}
+
+.events ul{
+    list-style-type: none;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.events ul li{
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.events ul li a{
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.events .event-add{
+    margin: 0 0 20px 20px;
+}
+
+.events .event-add input{
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-style: italic;
+}
+
+.events .event-add button:hover{
+    cursor: pointer;
+}
+
+.events hr{
+    margin: 20px;
+}
+
+a.event-edit{
+    color: green;
+}
+
+a.event-delete{
+    color: red;
+}
+

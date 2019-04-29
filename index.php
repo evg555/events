@@ -37,7 +37,42 @@
     </div>
     <div class="inner">
         <div class="events">
-            <p>Мероприятия на 28.04.2019 г.</p>
+            <h3>Мероприятия на <span class="event-date">28.04.2019</span></h3>
+
+            <div class="event-add">
+                <input type="text" name="event-time" placeholder="Время старта мероприятия. Например, 9.30"><br>
+                <input type="text" name="event-name" placeholder="Название мероприятия. Например, совещание с командой"><br>
+                <button>Добавить мероприятие</button>
+            </div>
+
+            <hr>
+
+            <ul>
+                <li>
+                    <span class="event-time">9.30</span>
+                    <span class="event-name">Тестовое мероприятие</span>
+                    <a href="#" class="event-edit">Изменить</a>
+                    <a href="#" class="event-delete">Удалить</a>
+                </li>
+                <li>
+                    <span class="event-time">9.30</span>
+                    <span class="event-name">Тестовое мероприятие</span>
+                    <a href="#" class="event-edit">Изменить</a>
+                    <a href="#" class="event-delete">Удалить</a>
+                </li>
+                <li>
+                    <span class="event-time">9.30</span>
+                    <span class="event-name">Тестовое мероприятие</span>
+                    <a href="#" class="event-edit">Изменить</a>
+                    <a href="#" class="event-delete">Удалить</a>
+                </li>
+                <li>
+                    <span class="event-time">9.30</span>
+                    <span class="event-name">Тестовое мероприятие</span>
+                    <a href="#" class="event-edit">Изменить</a>
+                    <a href="#" class="event-delete">Удалить</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
